@@ -1,8 +1,9 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { api } from "~/utils/api";
-import AuthShowcase from "~/components/auth-comp/AuthShowcase";
+
 import Featured from "~/components/featured/Featured";
+import Professionals from "~/components/professionals/Professionals";
 import Ideas from "~/components/ideas/Ideas";
 
 const Home: NextPage = () => {
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
       <main className=" h-screen w-full bg-background">
         <Featured />
         <Ideas />
+        <Professionals/>
       </main>
     </>
   );

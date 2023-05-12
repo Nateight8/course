@@ -5,7 +5,7 @@ import { cn } from "~/lib/utils";
 const pVariants = cva("text-primary", {
   variants: {
     size: {
-      default: "text-lg font-medium",
+      default: "mb-1 text-base font-semibold",
     },
   },
   defaultVariants: {
@@ -17,16 +17,16 @@ interface PHeading
   extends HTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof pVariants> {}
 
-const H3 = forwardRef<HTMLHeadingElement, PHeading>(
+const H4 = forwardRef<HTMLHeadingElement, PHeading>(
   ({ children, className, size, ...props }, ref) => {
     return (
-      <h3 ref={ref} {...props} className={cn(pVariants({ size, className }))}>
+      <h4 ref={ref} {...props} className={cn(pVariants({ size, className }))}>
         {children}
-      </h3>
+      </h4>
     );
   }
 );
 
-H3.displayName = "H3";
+H4.displayName = "H4";
 
-export { H3, pVariants };
+export { H4, pVariants };
