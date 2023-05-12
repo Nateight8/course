@@ -1,16 +1,7 @@
 // import React, { useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
-// import {
-//   Menubar,
-//   MenubarContent,
-//   MenubarItem,
-//   MenubarMenu,
-//   MenubarSeparator,
-//   MenubarTrigger,
-// } from "../ui/menubar";
 import { Button } from "../ui/button";
 
-import { useTheme } from "next-themes";
 import { LogInIcon } from "lucide-react";
 const AuthShowcase: React.FC = () => {
   const { data: sessionData } = useSession();

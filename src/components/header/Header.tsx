@@ -26,7 +26,7 @@ const Navbar = () => {
     },
   ];
   const { data: session } = useSession();
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   return (
     <div className="bg-shadow sticky left-0 right-0 top-0  z-50 w-full bg-background shadow-sm">
       <nav className="max-w-8xl mx-auto flex items-center justify-between  px-4 py-2 md:py-4 ">
