@@ -1,11 +1,12 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-
 import { api } from "~/utils/api";
 import AuthShowcase from "~/components/auth-comp/AuthShowcase";
+import Featured from "~/components/featured/Featured";
+import Ideas from "~/components/ideas/Ideas";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   return (
     <>
@@ -15,11 +16,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=" h-screen w-full bg-background">
-        <div className="flex flex-col items-center gap-2">
-          <p className="text-2xl text-white">
-            {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-          </p>
-        </div>
+        <Featured />
+        <Ideas />
       </main>
     </>
   );
