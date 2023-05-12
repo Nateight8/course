@@ -72,7 +72,10 @@ const Navbar = () => {
               {/* <div className="flex items-center"> */}
 
               <Avatar>
-                <AvatarImage src={session?.user.image || null} alt="@shadcn" />
+                <AvatarImage
+                  src={session?.user.image || undefined}
+                  alt="@shadcn"
+                />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
 
