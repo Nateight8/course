@@ -11,6 +11,7 @@ const config = {
       files: ["*.ts", "*.tsx"],
       rules: {
         "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/no-misused-promises": "off",
       },
       parserOptions: {
         project: path.join(__dirname, "tsconfig.json"),
