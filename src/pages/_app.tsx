@@ -7,17 +7,17 @@ import "~/styles/globals.css";
 import Navbar from "~/components/header/Header";
 import { ThemeProvider } from "next-themes";
 
-const inter = Montserrat({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <div className={inter.className}>
+    <div className={montserrat.className}>
       <SessionProvider session={session}>
+        <Navbar />
         <ThemeProvider attribute="class">
-          <Navbar />
           <Component {...pageProps} />
         </ThemeProvider>
       </SessionProvider>
