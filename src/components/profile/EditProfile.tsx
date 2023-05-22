@@ -1,6 +1,5 @@
 import React from "react";
 import { Button } from "../ui/button";
-import { Textarea } from "../ui/textarea";
 import { Label } from "../ui/label";
 import {
   Sheet,
@@ -12,11 +11,9 @@ import {
 } from "../ui/sheet";
 import { Formik, Form, Field } from "formik";
 import { Input } from "../ui/input";
-// type Props = {};
 
 function EditProfile() {
   return (
-    //  size="content"
     <div>
       <Sheet>
         <SheetTrigger asChild>

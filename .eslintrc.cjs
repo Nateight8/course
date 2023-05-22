@@ -12,6 +12,7 @@ const config = {
       rules: {
         "@typescript-eslint/consistent-type-imports": "off",
         "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/no-empty-interface": "off",
       },
       parserOptions: {
         project: path.join(__dirname, "tsconfig.json"),

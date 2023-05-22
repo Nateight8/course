@@ -2,7 +2,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { HTMLAttributes, forwardRef } from "react";
 import { cn } from "~/lib/utils";
 
-const pVariants = cva("text-primary", {
+const pVariants = cva("text-primary capitalize", {
   variants: {
     size: {
       default: "mb-1 text-base font-semibold",

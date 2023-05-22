@@ -6,6 +6,7 @@ import { Montserrat } from "next/font/google";
 import "~/styles/globals.css";
 import Navbar from "~/components/header/Header";
 import { ThemeProvider } from "next-themes";
+import Footer from "~/components/footer/Footer";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <ThemeProvider attribute="class">
           <Component {...pageProps} />
         </ThemeProvider>
+        <Footer />
       </SessionProvider>
     </div>
   );

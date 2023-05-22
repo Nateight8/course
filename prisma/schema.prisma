@@ -56,7 +56,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
-    Design        Design[]
+    designs       Design[]
 }
 
 model VerificationToken {
@@ -71,6 +71,7 @@ model Design {
     id          String  @id @default(cuid())
     userId      String
     user        User    @relation(fields: [userId], references: [id])
-    title       String?
+    name        String?
     description String?
+    image       String
 }
