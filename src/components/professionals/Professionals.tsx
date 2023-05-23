@@ -42,7 +42,10 @@ function Professionals() {
                 <div className="w-full">
                   <div className="flex items-center space-x-3">
                     <Avatar className=" h-10 w-10 lg:h-20 lg:w-20">
-                      <AvatarImage src={user.image} alt="@shadcn" />
+                      <AvatarImage
+                        src={user ? user.image || "" : ""}
+                        alt="@shadcn"
+                      />
                       <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                     <div className="">
