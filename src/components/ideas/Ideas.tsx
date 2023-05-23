@@ -50,7 +50,10 @@ function Ideas() {
                     <div className="flex w-full items-center justify-between">
                       <div className="flex items-center space-x-1">
                         <Avatar className="mr-2 h-8 w-8">
-                          <AvatarImage src={user.image} alt="@shadcn" />
+                          <AvatarImage
+                            src={user ? user.image : undefined}
+                            alt="@shadcn"
+                          />
                           <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
                         <P className="text-stone-300">@Username</P>
