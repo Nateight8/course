@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import { Design } from "@prisma/client";
 import { P } from "../ui/P";
 import { H2 } from "../ui/H2";
 import { Badge } from "../ui/badge";
@@ -17,7 +16,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 // type Props = {};
 
 function Featured() {
-  const design: Design = {
+  const design = {
     id: "123",
     title: "Builder Model Coper Ridge Brunfels.",
     description: "hello word",

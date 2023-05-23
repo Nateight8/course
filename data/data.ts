@@ -1,0 +1,61 @@
+const professionsData = [
+  { id: "1", value: "architect", name: "Architect" },
+  { id: "2", value: "interior-designer", name: "Interior Designer" },
+  { id: "3", value: "landscape-architect", name: "Landscape Architect" },
+  { id: "4", value: "urban-planner", name: "Urban Planner" },
+  { id: "5", value: "structural-engineer", name: "Structural Engineer" },
+  { id: "6", value: "building-surveyor", name: "Building Surveyor" },
+  { id: "7", value: "construction-manager", name: "Construction Manager" },
+  { id: "8", value: "cad-technician", name: "CAD Technician" },
+  { id: "9", value: "lighting-designer", name: "Lighting Designer" },
+  {
+    id: "10",
+    value: "sustainable-design-consultant",
+    name: "Sustainable Design Consultant",
+  },
+  { id: "11", value: "furniture-designer", name: "Furniture Designer" },
+  { id: "12", value: "set-designer", name: "Set Designer" },
+  { id: "13", value: "exhibition-designer", name: "Exhibition Designer" },
+  {
+    id: "14",
+    value: "kitchen-bath-designer",
+    name: "Kitchen and Bath Designer",
+  },
+  { id: "15", value: "project-manager", name: "Project Manager" },
+  { id: "16", value: "specifier", name: "Specifier" },
+  {
+    id: "17",
+    value: "bim-manager",
+    name: "Building Information Modeling (BIM) Manager",
+  },
+  { id: "18", value: "visualization-artist", name: "Visualization Artist" },
+  {
+    id: "19",
+    value: "architectural-photographer",
+    name: "Architectural Photographer",
+  },
+  {
+    id: "20",
+    value: "historic-preservation-specialist",
+    name: "Historic Preservation Specialist",
+  },
+  {
+    id: "21",
+    value: "green-building-consultant",
+    name: "Green Building Consultant",
+  },
+  { id: "22", value: "acoustic-consultant", name: "Acoustic Consultant" },
+  { id: "23", value: "estimator", name: "Estimator" },
+  { id: "24", value: "real-estate-developer", name: "Real Estate Developer" },
+  { id: "25", value: "facade-engineer", name: "Facade Engineer" },
+  { id: "26", value: "town-planner", name: "Town Planner" },
+  {
+    id: "27",
+    value: "design-build-contractor",
+    name: "Design-Build Contractor",
+  },
+  { id: "28", value: "residential-designer", name: "Residential Designer" },
+  { id: "29", value: "retail-designer", name: "Retail Designer" },
+];
+
+export default professionsData;

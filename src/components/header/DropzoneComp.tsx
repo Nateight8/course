@@ -2,12 +2,8 @@ import { useState } from "react";
 import { useS3Upload } from "next-s3-upload";
 import Image from "next/image";
 import { useFormikContext } from "formik";
-import { string } from "zod";
-interface Props {
-  // setFieldValue: () => void;
-}
 
-export default function UploadComponent({}: Props) {
+export default function UploadComponent() {
   const [imageUrl, setImageUrl] = useState<null | string>();
   const { uploadToS3 } = useS3Upload();
   const { setFieldValue } = useFormikContext();
@@ -33,18 +29,9 @@ export default function UploadComponent({}: Props) {
         />
       </div>
 
-      {/* <Image src="/images/1.jpg" alt="" fill className="" /> */}
       {imageUrl && (
         <Image alt="" fill src={imageUrl} className="object-cover" />
       )}
     </div>
   );
 }
-
-// {
-//   /* <div className="absolute z-40 flex h-full w-full items-center justify-center bg-black/50 transition-all duration-700 ease-in-out hover:bg-black/70">
-// <p className="capitalize text-stone-200">
-//   Drag and drop or click to add jpeg
-// </p>
-// </div> */
-// }

@@ -1,20 +1,6 @@
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Bell, Mail, ShoppingBagIcon } from "lucide-react";
 import AuthShowcase from "../auth-comp/AuthShowcase";
-import { Button, buttonVariants } from "../ui/button";
-// import { usePathname } from "next/navigation";
+import { buttonVariants } from "../ui/button";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { useTheme } from "next-themes";
-import {
-  Menubar,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarTrigger,
-} from "../ui/menubar";
 
 const Navbar = () => {
   const linkItems = [
@@ -34,11 +20,9 @@ const Navbar = () => {
       href: "/",
     },
   ];
-  const { data: session } = useSession();
-  const { setTheme } = useTheme();
 
   return (
-    <div className="bg-shadow  z-50 w-full bg-background shadow-sm">
+    <div className="bg-shadow sticky top-0 z-50 w-full bg-background shadow-sm">
       <nav className="max-w-8xl mx-auto flex items-center justify-between  px-4 py-2 md:py-4 ">
         <div className="">
           {/* left */}

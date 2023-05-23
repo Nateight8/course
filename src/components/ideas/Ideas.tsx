@@ -13,7 +13,7 @@ import CreateProject from "../header/CreateProject";
 function Ideas() {
   const interiorIdeas = api.design.getProjects.useQuery();
 
-  console.log(interiorIdeas);
+  // console.log(interiorIdeas);
 
   return (
     <section className="mb-6">

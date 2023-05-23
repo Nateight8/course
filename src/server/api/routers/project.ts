@@ -12,6 +12,7 @@ export const projectRouter = createTRPCRouter({
     )
     .mutation(async ({ ctx, input }) => {
       const user = ctx.session.user;
+
       const newDesign = await ctx.prisma.design.create({
         data: {
           description: input.description,
@@ -37,4 +38,22 @@ export const projectRouter = createTRPCRouter({
       },
     })
   ),
+
+  returnUserRole: protectedProcedure.query(async ({ ctx }) => {
+    const userId = ctx.session.user.id;
+
+    const user = await ctx.prisma.user.findUnique({
+      where: { id: userId },
+      select: { role: true },
+    });
+
+    return user;
+  }),
 });
+
+// const user = await prisma.user.findUnique({
+//   where: { id: userId },
+//   select: { id: true, name: true, email: true, image: true },
+// });
+
+// return user;
