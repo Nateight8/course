@@ -51,7 +51,7 @@ function Ideas() {
                       <div className="flex items-center space-x-1">
                         <Avatar className="mr-2 h-8 w-8">
                           <AvatarImage
-                            src={user ? user.image : undefined}
+                            src={user ? user.image || "" : ""}
                             alt="@shadcn"
                           />
                           <AvatarFallback>CN</AvatarFallback>
