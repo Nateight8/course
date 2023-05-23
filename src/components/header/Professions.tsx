@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
@@ -17,6 +17,17 @@ import { ScrollArea } from "../ui/scroll-area";
 function Professions() {
   const { values, setFieldValue } = useFormikContext<FormikValues>();
   const [open, setOpen] = React.useState(false);
+  const [selectedLabel, setSelectedLabel] = useState("");
+
+  const returnName = professionsData.find(
+    (pro) => pro.value === selectedLabel
+  )?.name;
+
+  useEffect(() => {
+    if (returnName) {
+      setFieldValue("profession", returnName);
+    }
+  }, [returnName, setFieldValue]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -27,10 +38,7 @@ function Professions() {
           aria-expanded={open}
           className="w-full justify-between"
         >
-          {values.location
-            ? professionsData.find((pro) => pro.value === values.profession)
-                ?.name
-            : "You are a/an?"}
+          {values.profession ? returnName : "You are a/an?"}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -47,7 +55,7 @@ function Professions() {
                   key={pro.value}
                   value={pro.value}
                   onSelect={(value) => {
-                    setFieldValue("profession", value);
+                    setSelectedLabel(value);
                     setOpen(false);
                   }}
                 >

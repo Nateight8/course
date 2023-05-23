@@ -4,7 +4,7 @@ import Head from "next/head";
 import Featured from "~/components/featured/Featured";
 import Professionals from "~/components/professionals/Professionals";
 import Ideas from "~/components/ideas/Ideas";
-import Footer from "~/components/footer/Footer";
+
 
 const Home: NextPage = () => {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });

@@ -37,14 +37,16 @@ function CreateProject() {
   const createProjectMutation = api.design.createProject.useMutation();
   const interiorIdeas = api.design.getProjects.useQuery();
   const role = api.design.returnUserRole.useQuery();
-
-  // const interiorIdeas = api.design.getProjects.useQuery();
+  const [open, setopen] = useState(false);
 
   return (
     <>
-      <Sheet>
+      <Sheet onOpenChange={setopen} open={open}>
         <SheetTrigger asChild>
-          <Button className=" hidden md:inline-block">
+          <Button
+            onClick={() => setopen(true)}
+            className=" hidden md:inline-block"
+          >
             Share Designer Idea
           </Button>
         </SheetTrigger>
@@ -72,6 +74,7 @@ function CreateProject() {
                   await createProjectMutation.mutateAsync(values);
                   resetForm();
                   await interiorIdeas.refetch();
+                  setopen(false);
                 }}
               >
                 {() => (
@@ -150,7 +153,7 @@ function CreateProject() {
               </Formik>
             </>
           ) : (
-            <AddRole />
+            <AddRole setopen={setopen} />
           )}
         </SheetContent>
       </Sheet>

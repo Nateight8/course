@@ -13,10 +13,10 @@ import CreateProject from "../header/CreateProject";
 function Ideas() {
   const interiorIdeas = api.design.getProjects.useQuery();
 
-  // console.log(interiorIdeas);
+  console.log(interiorIdeas);
 
   return (
-    <section className="mb-6">
+    <section className="max-w-8xl mx-auto mb-6">
       <Layout>
         <div className="">
           <H3 className="">Interior Design Ideas</H3>
@@ -56,7 +56,7 @@ function Ideas() {
                           />
                           <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
-                        <P className="text-stone-300">@Username</P>
+                        <P className="text-stone-300">@{user.username}</P>
                       </div>
                       <div className="">
                         <div className=" flex items-center text-xs text-stone-300">
@@ -70,7 +70,9 @@ function Ideas() {
             })}
         </div>
       </div>
-      <Button className="w-full ">Explore More Design Ideas</Button>
+      <div className="px-4">
+        <Button className="w-full">Explore More Arch & Designers</Button>
+      </div>
     </section>
   );
 }

@@ -8,13 +8,21 @@ import { Button, buttonVariants } from "../ui/button";
 import Link from "next/link";
 import Professions from "./Professions";
 import { LocationCX } from "./Location";
+import { api } from "~/utils/api";
 
-function AddRole() {
+interface Props {
+  setopen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function AddRole({ setopen }: Props) {
   const initialValues = {
     username: "",
     profession: "",
     location: "",
   };
+
+  const updateRoleMutation = api.design.updateUserRole.useMutation();
+
   return (
     <>
       <SheetHeader className="mx-auto mb-10 mt-6 w-full max-w-3xl">
@@ -27,9 +35,10 @@ function AddRole() {
       </SheetHeader>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values, { resetForm }) => {
-          console.log(values);
+        onSubmit={async (values, { resetForm }) => {
+          await updateRoleMutation.mutateAsync(values);
           resetForm();
+          setopen(false);
         }}
       >
         {() => (

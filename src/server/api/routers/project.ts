@@ -49,11 +49,30 @@ export const projectRouter = createTRPCRouter({
 
     return user;
   }),
+
+  updateUserRole: protectedProcedure
+    .input(
+      z.object({
+        username: z.string(),
+        profession: z.string(),
+        location: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const userId = ctx.session.user.id;
+
+      const updateRole = await ctx.prisma.user.update({
+        where: {
+          id: userId,
+        },
+        data: {
+          username: input.username,
+          profession: input.profession,
+          location: input.location,
+          role: "pro",
+        },
+      });
+
+      return updateRole;
+    }),
 });
-
-// const user = await prisma.user.findUnique({
-//   where: { id: userId },
-//   select: { id: true, name: true, email: true, image: true },
-// });
-
-// return user;
