@@ -15,9 +15,7 @@ import {
   DialogTrigger,
 } from "./dialog";
 
-type Props = {};
-
-function ProfileLayout({}: Props) {
+function ProfileLayout() {
   const { data: session } = useSession();
   return (
     <div className="">
@@ -56,8 +54,8 @@ function ProfileLayout({}: Props) {
                   <DialogHeader>
                     <DialogTitle>Edit profile</DialogTitle>
                     <DialogDescription>
-                      Make changes to your profile here. Click save when you're
-                      done.
+                      Make changes to your profile here. Click save when
+                      you&lsquo;re done.
                     </DialogDescription>
                   </DialogHeader>
 
