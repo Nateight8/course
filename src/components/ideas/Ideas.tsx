@@ -9,6 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { EyeIcon } from "lucide-react";
 import { api } from "~/utils/api";
 import CreateProject from "../header/CreateProject";
+import Link from "next/link";
 
 function Ideas() {
   const interiorIdeas = api.design.getProjects.useQuery();
@@ -35,7 +36,11 @@ function Ideas() {
           {interiorIdeas &&
             interiorIdeas.data?.map(({ id, image, name, user }) => {
               return (
-                <div key={id} className="relative">
+                <Link
+                  href="/designs/design"
+                  key={id}
+                  className="relative hover:cursor-pointer"
+                >
                   <div className=" w-full">
                     <AspectRatio ratio={1 / 1}>
                       <Image
@@ -65,7 +70,7 @@ function Ideas() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
         </div>

@@ -50,7 +50,7 @@ const AuthShowcase: React.FC = () => {
                 <Avatar>
                   <AvatarImage
                     src={sessionData?.user.image || undefined}
-                    alt="@shadcn"
+                    alt="profile avatar"
                   />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>

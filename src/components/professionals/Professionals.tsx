@@ -11,6 +11,10 @@ import { MapPin } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { Badge } from "../ui/badge";
 import { H4 } from "../ui/H4";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
 
 function Professionals() {
   const getUsersWithProjects = api.design.getUsersWithProjects.useQuery();
@@ -76,9 +80,26 @@ function Professionals() {
                   </div>
                 </div>
                 {/* designs */}
-                <div className="col-span-full col-start-2 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                <Swiper
+                  freeMode={true}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                      spaceBetween: 16,
+                    },
+                    768: {
+                      slidesPerView: 3,
+                      spaceBetween: 16,
+                    },
+                    1024: {
+                      slidesPerView: 4,
+                      spaceBetween: 16,
+                    },
+                  }}
+                  className="mySwiper  col-span-full col-start-2 mx-auto my-4 flex w-full"
+                >
                   {user.designs.map((design) => (
-                    <div key={design.id} className=" w-full">
+                    <SwiperSlide key={design.id} className=" w-full">
                       <AspectRatio ratio={1 / 1}>
                         <Image
                           src={design.image}
@@ -87,9 +108,9 @@ function Professionals() {
                           fill
                         />
                       </AspectRatio>
-                    </div>
+                    </SwiperSlide>
                   ))}
-                </div>
+                </Swiper>
               </div>
             </div>
           ))}

@@ -4,7 +4,7 @@ import { P } from "../ui/P";
 import { H2 } from "../ui/H2";
 import { Badge } from "../ui/badge";
 import { EyeIcon, ThumbsUpIcon } from "lucide-react";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { ImageIcon } from "lucide-react";
 import {
   Tooltip,
@@ -30,7 +30,7 @@ function Featured() {
   };
 
   return (
-    <div className="relative flex h-[80vh] items-center justify-center bg-primary">
+    <div className="relative flex h-[83vh] items-center justify-center bg-primary">
       <Image
         src="/images/1.jpg"
         alt="Photo by Drew Beamer"
@@ -48,10 +48,7 @@ function Featured() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Badge
-                      variant="ghost"
-                      className="rounded-full text-stone-300"
-                    >
+                    <Badge className="rounded-full text-stone-300">
                       <ImageIcon size={16} className="mr-2 " /> 8
                     </Badge>
                   </TooltipTrigger>
@@ -78,7 +75,9 @@ function Featured() {
                 />
                 221
               </Button>
-              <Badge variant="ghost" className="rounded-full  text-stone-300">
+              <Badge
+                className={buttonVariants({ variant: "ghost", size: "sm" })}
+              >
                 <EyeIcon size={16} className="mr-2" /> 221
               </Badge>
             </div>

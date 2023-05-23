@@ -6,16 +6,21 @@ const Navbar = () => {
   const linkItems = [
     {
       id: "1",
-      label: "Design Ideas",
+      label: "Home",
       href: "/",
     },
     {
       id: "2",
-      label: "Designers & Architects",
+      label: "Design Ideas",
       href: "/",
     },
     {
       id: "3",
+      label: "Designers & Architects",
+      href: "/",
+    },
+    {
+      id: "4",
       label: "Shopping",
       href: "/",
     },
@@ -23,7 +28,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-shadow sticky top-0 z-50 w-full bg-background shadow-sm">
-      <nav className="max-w-8xl mx-auto flex items-center justify-between  px-4 py-2 md:py-4 ">
+      <nav className="max-w-8xl mx-auto flex items-center justify-between  px-4 py-2 ">
         <div className="">
           {/* left */}
           <ul className="hidden items-center space-x-4 lg:flex">
