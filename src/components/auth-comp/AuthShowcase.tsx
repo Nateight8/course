@@ -74,7 +74,7 @@ const AuthShowcase: React.FC = () => {
           </Menubar>
         </div>
       ) : (
-        <Button onClick={() => signIn()}>Sing In</Button>
+        <Button onClick={async () => await signIn()}>Sing In</Button>
       )}
     </div>
   );

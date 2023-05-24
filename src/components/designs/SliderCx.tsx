@@ -69,7 +69,3 @@ function SliderCx() {
 }
 
 export default SliderCx;
-
-function Tile() {
-  return <div></div>;
-}
