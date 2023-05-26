@@ -50,7 +50,7 @@ function CreateProject() {
         <SheetContent
           position="bottom"
           size="full"
-          className="flex items-center"
+          className="flex flex-col items-center"
         >
           {role.data?.role === "pro" ? (
             <>
