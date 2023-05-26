@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import { Input } from "../ui/input";
-import { SheetDescription, SheetHeader, SheetTitle } from "../ui/sheet";
+import { SheetHeader, SheetTitle } from "../ui/sheet";
 import { H3 } from "../ui/H3";
 import { P } from "../ui/P";
 import { Button, buttonVariants } from "../ui/button";
@@ -29,9 +29,9 @@ function AddRole({ setopen }: Props) {
         <SheetTitle>
           <H3 className="text-4xl">Share what you&lsquo;ve been working on?</H3>
         </SheetTitle>
-        <SheetDescription>
+        {/* <SheetDescription>
           <P>Add role</P>
-        </SheetDescription>
+        </SheetDescription> */}
       </SheetHeader>
       <Formik
         initialValues={initialValues}
