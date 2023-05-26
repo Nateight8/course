@@ -7,14 +7,14 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import { H3 } from "../ui/H3";
-import { P } from "../ui/P";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import DropzoneComp from "./DropzoneComp";
 import { Formik, Form, Field } from "formik";
 import { api } from "~/utils/api";
 import AddRole from "./AddRole";
+import Link from "next/link";
 
 function CreateProject() {
   const [step, setStep] = useState(1);
@@ -84,9 +84,14 @@ function CreateProject() {
                               >
                                 Back
                               </Button>
-                              <Button type="submit" className="w-full">
-                                Submit
-                              </Button>
+                              <Link
+                                href="/"
+                                className={buttonVariants({
+                                  variant: "outline",
+                                })}
+                              >
+                                Return Home
+                              </Link>
                             </div>
                           </div>
                         )}
