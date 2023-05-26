@@ -47,12 +47,16 @@ function CreateProject() {
             Share Designer Idea
           </Button>
         </SheetTrigger>
-        <SheetContent position="bottom" size="full">
+        <SheetContent
+          position="bottom"
+          size="full"
+          className="flex items-center"
+        >
           {role.data?.role === "pro" ? (
             <>
               <SheetHeader className="mx-auto mb-10 mt-6 w-full max-w-3xl">
                 <SheetTitle>
-                  <H3 className="text-4xl">
+                  <H3 className="text-2xl">
                     Share what you&lsquo;ve been working on?
                   </H3>
                 </SheetTitle>
