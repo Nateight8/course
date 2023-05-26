@@ -2,16 +2,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { P } from "../ui/P";
 import { H2 } from "../ui/H2";
-import { Badge } from "../ui/badge";
-import { EyeIcon, ThumbsUpIcon } from "lucide-react";
-import { Button, buttonVariants } from "../ui/button";
-import { ImageIcon } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "../ui/tooltip";
+import { Button } from "../ui/button";
+
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 // type Props = {};
 
@@ -23,11 +15,11 @@ function Featured() {
     userId: "256",
   };
 
-  const [liked, setLiked] = useState(false);
+  // const [liked, setLiked] = useState(false);
 
-  const handleLiked = () => {
-    setLiked(!liked);
-  };
+  // const handleLiked = () => {
+  //   setLiked(!liked);
+  // };
 
   return (
     <div className="relative flex h-[83vh] items-center justify-center bg-primary">

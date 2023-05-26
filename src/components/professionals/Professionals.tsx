@@ -82,6 +82,7 @@ function Professionals() {
                 {/* designs */}
                 <Swiper
                   freeMode={true}
+                  spaceBetween={16}
                   breakpoints={{
                     640: {
                       slidesPerView: 2,
