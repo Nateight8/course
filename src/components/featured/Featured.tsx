@@ -44,43 +44,6 @@ function Featured() {
           </P>
           <div className="my-10 max-w-sm">
             <H2 className="text-stone-200">{design.title}</H2>
-            <div className="flex items-center">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Badge className="rounded-full text-stone-300">
-                      <ImageIcon size={16} className="mr-2 " /> 8
-                    </Badge>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Add to library</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-
-              <Button
-                onClick={handleLiked}
-                variant="ghost"
-                size="sm"
-                className="rounded-full text-stone-300"
-              >
-                <ThumbsUpIcon
-                  size={16}
-                  className="mr-2 "
-                  style={
-                    liked
-                      ? { fill: "white", border: "none" }
-                      : { fill: "transparent" }
-                  }
-                />
-                221
-              </Button>
-              <Badge
-                className={buttonVariants({ variant: "ghost", size: "sm" })}
-              >
-                <EyeIcon size={16} className="mr-2" /> 221
-              </Badge>
-            </div>
           </div>
           <div className="flex items-center space-x-10">
             <Button size="sm">Open Project</Button>

@@ -108,6 +108,7 @@ function Professionals() {
                           fill
                         />
                       </AspectRatio>
+                      <div className="absolute inset-0  bg-[rgba(10,10,10,0.6)] " />
                     </SwiperSlide>
                   ))}
                 </Swiper>

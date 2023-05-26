@@ -43,10 +43,7 @@ function CreateProject() {
     <>
       <Sheet onOpenChange={setopen} open={open}>
         <SheetTrigger asChild>
-          <Button
-            onClick={() => setopen(true)}
-            className=" hidden md:inline-block"
-          >
+          <Button onClick={() => setopen(true)} className=" w-full lg:w-fit ">
             Share Designer Idea
           </Button>
         </SheetTrigger>

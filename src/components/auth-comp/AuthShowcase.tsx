@@ -24,6 +24,7 @@ const AuthShowcase: React.FC = () => {
         <div className="flex items-center space-x-4">
           {/*right */}
           <Button
+            size="sm"
             onClick={() => setTheme("light")}
             variant="ghost"
             className=" hidden rounded-full p-2 md:inline-block"
@@ -74,7 +75,9 @@ const AuthShowcase: React.FC = () => {
           </Menubar>
         </div>
       ) : (
-        <Button onClick={async () => await signIn()}>Sing In</Button>
+        <Button size="sm" onClick={async () => await signIn()}>
+          Sing In
+        </Button>
       )}
     </div>
   );
