@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { H2 } from "~/components/ui/H2";
+// import { H2 } from "~/components/ui/H2";
 import Layout from "~/components/ui/Layout";
-import { Button, buttonVariants } from "~/components/ui/button";
+import { buttonVariants } from "~/components/ui/button";
 import Link from "next/link";
 import { Separator } from "~/components/ui/separator";
 import { H3 } from "~/components/ui/H3";
