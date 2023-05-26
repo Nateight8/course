@@ -67,7 +67,7 @@ function MobileMenu() {
         <div className="flex h-full flex-col items-center justify-between">
           <div className="w-full">
             {/* left */}
-            <ul className="flex flex-col  space-y-4">
+            <ul className="flex flex-col  space-y-2">
               {linkItems.map(({ id, label, href }) => (
                 <li key={id}>
                   <Link
