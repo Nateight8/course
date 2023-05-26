@@ -63,7 +63,7 @@ function MobileMenu() {
       <SheetTrigger className="lg:hidden">
         <Menu />
       </SheetTrigger>
-      <SheetContent position="left" size="lg">
+      <SheetContent position="left" size="xl">
         <div className="flex h-full flex-col items-center justify-between">
           <div className="w-full">
             {/* left */}
