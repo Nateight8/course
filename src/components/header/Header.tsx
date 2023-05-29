@@ -1,15 +1,12 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { Button, buttonVariants } from "../ui/button";
-import { ChevronUp, WalletIcon, ChevronDown } from "lucide-react";
+import React, { useState } from "react";
+import { Button } from "../ui/button";
 
 import { Sling as Hamburger } from "hamburger-react";
 import CreateProject from "./CreateProject";
 
-type Props = {};
-
-function Navbar({}: Props) {
+function Navbar() {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => {
     setOpen(!open);

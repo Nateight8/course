@@ -3,7 +3,6 @@ import React from "react";
 import { Input } from "../ui/input";
 import { SheetHeader, SheetTitle } from "../ui/sheet";
 import { H3 } from "../ui/H3";
-import { P } from "../ui/P";
 import { Button, buttonVariants } from "../ui/button";
 import Link from "next/link";
 import Professions from "./Professions";

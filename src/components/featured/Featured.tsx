@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import { P } from "../ui/P";
 import { H2 } from "../ui/H2";
 import { Button } from "../ui/button";
