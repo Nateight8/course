@@ -1,90 +1,79 @@
-import AuthShowcase from "../auth-comp/AuthShowcase";
-import { buttonVariants } from "../ui/button";
+"use client";
 import Link from "next/link";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import { Menu } from "lucide-react";
-import CreateProject from "./CreateProject";
-const linkItems = [
-  {
-    id: "1",
-    label: "Home",
-    href: "/",
-  },
-  {
-    id: "2",
-    label: "Design Ideas",
-    href: "/",
-  },
-  {
-    id: "3",
-    label: "Designers & Architects",
-    href: "/",
-  },
-  {
-    id: "4",
-    label: "Shopping",
-    href: "/",
-  },
-];
+import React, { useEffect, useState } from "react";
+import { Button, buttonVariants } from "../ui/button";
+import { ChevronUp, WalletIcon, ChevronDown } from "lucide-react";
 
-const Navbar = () => {
+import { Sling as Hamburger } from "hamburger-react";
+import CreateProject from "./CreateProject";
+
+type Props = {};
+
+function Navbar({}: Props) {
+  const [open, setOpen] = useState(false);
+  const toggleOpen = () => {
+    setOpen(!open);
+  };
+
   return (
-    <div className="bg-shadow sticky top-0 z-50 w-full bg-background shadow-sm">
-      <nav className="max-w-8xl mx-auto  px-4 py-2 ">
-        <div className="flex w-full  items-center justify-between  ">
-          <div className="hidden lg:inline-block">
-            <ul className=" items-center space-x-4 lg:flex">
-              {" "}
-              {linkItems.map(({ id, label, href }) => (
-                <li key={id}>
-                  <Link
-                    className={buttonVariants({ variant: "link" })}
-                    href={href}
-                  >
-                    {label}
-                  </Link>{" "}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <MobileMenu />
-          <AuthShowcase />
+    <div className="sticky left-0 top-0 z-50 w-full bg-background ">
+      <nav className="relative flex h-[8vh] items-center justify-between px-4">
+        <div className=" uppercased text-base md:hidden"> VentureX</div>
+        <ul className="hidden items-center space-x-8 md:flex  ">
+          <li>
+            <Button asChild className="w-full" variant="ghost">
+              <Link href="/">Design Ideas</Link>
+            </Button>
+          </li>
+          <li>
+            <Button asChild className="w-full" variant="ghost">
+              <Link href="/">Designers & Arch</Link>
+            </Button>
+          </li>
+          <li>
+            <Button asChild className="w-full" variant="ghost">
+              <Link href="/">Shopping</Link>
+            </Button>
+          </li>
+        </ul>
+        <div className="hidden md:block">
+          <Button className="w-full" variant="outline">
+            Connect Wallet
+          </Button>
+        </div>
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden">
+          <Hamburger size={24} rounded onToggle={toggleOpen} />
         </div>
       </nav>
-    </div>
-  );
-};
+      <div className={`w-full, ${open ? "block" : "hidden"} md:hidden `}>
+        <div className="my-2 h-px w-full bg-border" />
+        <div className="flex min-h-[90vh]  flex-col justify-between py-4 ">
+          <ul className="space-y-1">
+            <li>
+              <Button asChild className="w-full" variant="leftAlignBtn">
+                <Link href="/">Design Ideas</Link>
+              </Button>
+            </li>
+            <li>
+              <Button asChild className="w-full" variant="leftAlignBtn">
+                <Link href="/">Designers & Arch</Link>
+              </Button>
+            </li>
 
-export default Navbar;
+            <li>
+              <Button asChild className="w-full" variant="leftAlignBtn">
+                <Link href="/">Shopping</Link>
+              </Button>
+            </li>
+          </ul>
 
-function MobileMenu() {
-  return (
-    <Sheet>
-      <SheetTrigger className="lg:hidden">
-        <Menu />
-      </SheetTrigger>
-      <SheetContent position="left" size="xl">
-        <div className="flex h-full flex-col items-center justify-between">
-          <div className="w-full">
-            {/* left */}
-            <ul className="flex flex-col  space-y-2">
-              {linkItems.map(({ id, label, href }) => (
-                <li key={id}>
-                  <Link
-                    className={buttonVariants({ variant: "link" })}
-                    href={href}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="w-full">
+          <div className="p-4">
             <CreateProject />
           </div>
         </div>
-      </SheetContent>
-    </Sheet>
+      </div>
+    </div>
   );
 }
+
+export default Navbar;

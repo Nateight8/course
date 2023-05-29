@@ -53,7 +53,7 @@ function CreateProject() {
         </SheetTrigger>
         <SheetContent
           position="bottom"
-          size="full"
+          size="xl"
           className="flex flex-col items-center justify-center"
         >
           <div className="w-full">
