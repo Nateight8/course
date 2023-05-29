@@ -27,7 +27,9 @@ function AddRole({ setopen }: Props) {
     <>
       <SheetHeader className="mx-auto mb-10 mt-6 w-full max-w-3xl">
         <SheetTitle>
-          <H3 className="text-4xl">Share what you&lsquo;ve been working on?</H3>
+          <H3 className="text-2xl capitalize md:text-4xl">
+            Let others get to know what you do
+          </H3>
         </SheetTitle>
         {/* <SheetDescription>
           <P>Add role</P>

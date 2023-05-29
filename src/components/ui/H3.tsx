@@ -5,7 +5,7 @@ import { cn } from "~/lib/utils";
 const pVariants = cva("text-primary", {
   variants: {
     size: {
-      default: "text-lg font-medium",
+      default: "text-base md:text-2xl font-medium",
     },
   },
   defaultVariants: {
