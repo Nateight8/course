@@ -11,10 +11,11 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button, buttonVariants } from "../ui/button";
 import DropzoneComp from "./DropzoneComp";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { api } from "~/utils/api";
 import AddRole from "./AddRole";
 import Link from "next/link";
+import { object, string } from "yup";
 
 function CreateProject() {
   const [step, setStep] = useState(1);
@@ -37,6 +38,11 @@ function CreateProject() {
   const interiorIdeas = api.design.getProjects.useQuery();
   const role = api.design.returnUserRole.useQuery();
   const [open, setopen] = useState(false);
+
+  const validationSchema = object({
+    name: string().required("Name is required"),
+    description: string().required("Description is required"),
+  });
 
   return (
     <>
@@ -69,6 +75,7 @@ function CreateProject() {
                     await interiorIdeas.refetch();
                     setopen(false);
                   }}
+                  validationSchema={validationSchema}
                 >
                   {() => (
                     <Form>
@@ -77,22 +84,24 @@ function CreateProject() {
                           <div className="mx-auto flex max-w-3xl flex-col items-center justify-center space-y-4">
                             <Field name="image" component={DropzoneComp} />
                             <div className="grid w-full  grid-cols-2 gap-4">
-                              <Button
-                                variant="outline"
-                                onClick={handlePrev}
-                                className="w-full"
-                              >
+                              <Button variant="outline" onClick={handlePrev}>
                                 Back
                               </Button>
-                              <Link
-                                href="/"
-                                className={buttonVariants({
-                                  variant: "outline",
-                                })}
-                              >
-                                Return Home
-                              </Link>
+                              <Button type="submit">Submit</Button>
                             </div>
+                            {(
+                              <ErrorMessage
+                                name="name"
+                                component="div"
+                                className="error"
+                              />
+                            ) && (
+                              <ErrorMessage
+                                name="description"
+                                component="div"
+                                className="error"
+                              />
+                            )}
                           </div>
                         )}
                       </>
@@ -104,7 +113,18 @@ function CreateProject() {
                               name="name"
                               as={Input}
                               placeholder="Give me a name"
+                              validate={(value) => {
+                                try {
+                                  validationSchema.validateSyncAt(
+                                    "name",
+                                    value
+                                  );
+                                } catch (error) {
+                                  return error.message;
+                                }
+                              }}
                             />
+
                             <div className="grid w-full max-w-3xl grid-cols-2 gap-4">
                               <Button
                                 variant="outline"
@@ -129,6 +149,21 @@ function CreateProject() {
                               name="description"
                               as={Textarea}
                               placeholder="Write what went into this project or add details you will love to mention"
+                              validate={(value) => {
+                                try {
+                                  validationSchema.validateSyncAt(
+                                    "description",
+                                    value
+                                  );
+                                } catch (error) {
+                                  return error.message;
+                                }
+                              }}
+                            />
+                            <ErrorMessage
+                              name="description"
+                              component="div"
+                              className="error"
                             />
 
                             <div className="grid w-full grid-cols-2 gap-4">
