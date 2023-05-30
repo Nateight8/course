@@ -33,6 +33,9 @@ export const projectRouter = createTRPCRouter({
 
   getUsersWithProjects: publicProcedure.query(({ ctx }) =>
     ctx.prisma.user.findMany({
+      where: {
+        role: "pro",
+      },
       include: {
         designs: true,
       },

@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 
 import { Sling as Hamburger } from "hamburger-react";
 import CreateProject from "./CreateProject";
+import AuthShowcase from "../auth-comp/AuthShowcase";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -34,9 +35,7 @@ function Navbar() {
           </li>
         </ul>
         <div className="hidden md:block">
-          <Button className="w-full" variant="outline">
-            Connect Wallet
-          </Button>
+          <AuthShowcase />
         </div>
         <div className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden">
           <Hamburger size={24} rounded onToggle={toggleOpen} />
@@ -61,6 +60,11 @@ function Navbar() {
               <Button asChild className="w-full" variant="leftAlignBtn">
                 <Link href="/">Shopping</Link>
               </Button>
+            </li>
+            <li>
+              <div className="">
+                <AuthShowcase />
+              </div>
             </li>
           </ul>
 

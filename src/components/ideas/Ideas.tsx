@@ -14,7 +14,7 @@ import Link from "next/link";
 function Ideas() {
   const interiorIdeas = api.design.getProjects.useQuery();
 
-  console.log(interiorIdeas);
+ 
 
   return (
     <section className="max-w-8xl mx-auto mb-6">
@@ -76,7 +76,7 @@ function Ideas() {
         </div>
       </div>
       <div className="px-4">
-        <Button className="w-full">Explore More Arch & Designers</Button>
+        <Button className="w-full">Explore More Designs</Button>
       </div>
     </section>
   );
