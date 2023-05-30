@@ -98,7 +98,7 @@ const sheetVariants = cva(
       {
         position: ["top", "bottom"],
         size: "xl",
-        class: "h-5/6",
+        class: "h-[95%]",
       },
       {
         position: ["top", "bottom"],
