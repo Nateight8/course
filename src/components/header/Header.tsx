@@ -1,80 +1,62 @@
 "use client";
-import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
+import { Collapse, IconButton } from "@material-tailwind/react";
 import { Button } from "../ui/button";
+import { signIn } from "next-auth/react";
 
-import { Sling as Hamburger } from "hamburger-react";
-import CreateProject from "./CreateProject";
-import AuthShowcase from "../auth-comp/AuthShowcase";
-
-function Navbar() {
-  const [open, setOpen] = useState(false);
-  const toggleOpen = () => {
-    setOpen(!open);
-  };
-
+function NavList() {
+  const navlinks = [
+    { id: "s", label: "Design Ideas" },
+    { id: "a", label: "Designers" },
+    { id: "c", label: "Architects" },
+  ];
   return (
-    <div className="sticky left-0 top-0 z-50 w-full bg-background ">
-      <nav className="relative flex h-[8vh] items-center justify-between px-4">
-        <div className=" uppercased text-base md:hidden"> VentureX</div>
-        <ul className="hidden items-center space-x-8 md:flex  ">
-          <li>
-            <Button asChild className="w-full" variant="ghost">
-              <Link href="/">Design Ideas</Link>
-            </Button>
-          </li>
-          <li>
-            <Button asChild className="w-full" variant="ghost">
-              <Link href="/">Designers & Arch</Link>
-            </Button>
-          </li>
-          <li>
-            <Button asChild className="w-full" variant="ghost">
-              <Link href="/">Shopping</Link>
-            </Button>
-          </li>
-        </ul>
-        <div className="hidden md:block">
-          <AuthShowcase />
-        </div>
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden">
-          <Hamburger size={24} rounded onToggle={toggleOpen} />
-        </div>
-      </nav>
-      <div className={`w-full, ${open ? "block" : "hidden"} md:hidden `}>
-        <div className="my-2 h-px w-full bg-border" />
-        <div className="flex min-h-[90vh]  flex-col justify-between py-4 ">
-          <ul className="space-y-1">
-            <li>
-              <Button asChild className="w-full" variant="leftAlignBtn">
-                <Link href="/">Design Ideas</Link>
-              </Button>
-            </li>
-            <li>
-              <Button asChild className="w-full" variant="leftAlignBtn">
-                <Link href="/">Designers & Arch</Link>
-              </Button>
-            </li>
-
-            <li>
-              <Button asChild className="w-full" variant="leftAlignBtn">
-                <Link href="/">Shopping</Link>
-              </Button>
-            </li>
-            <li>
-              <div className="">
-                <AuthShowcase />
-              </div>
-            </li>
-          </ul>
-
-          <div className="p-4">
-            <CreateProject />
-          </div>
-        </div>
-      </div>
+    <div className="">
+      {navlinks.map((link) => (
+        <Button size="sm" variant="ghost" key={link.id}>
+          {link.label}
+        </Button>
+      ))}
     </div>
   );
 }
 
-export default Navbar;
+export default function Example() {
+  const [openNav, setOpenNav] = React.useState(false);
+
+  React.useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth >= 960 && setOpenNav(false)
+    );
+  }, []);
+
+  return (
+    <nav className="fixed z-50 mx-auto w-full bg-background px-4 py-2">
+      <div className="text-blue-gray-900 flex items-center justify-between">
+        <div className="hidden lg:block">
+          <NavList />
+        </div>
+        <div className="hidden gap-2 lg:flex">
+          <Button onClick={() => signIn("google")} variant="ghost" size="sm">
+            Sign In
+          </Button>
+          <Button onClick={() => signIn("google")} size="sm">
+            Sign Up
+          </Button>
+        </div>
+      </div>
+      <Collapse className="h-screen" open={openNav}>
+        <NavList />
+        <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
+          <Button onClick={() => signIn("google")} variant="ghost" size="sm">
+            Sign In
+          </Button>
+          <Button onClick={() => signIn("google")} size="sm">
+            Sign Up
+          </Button>
+        </div>
+      </Collapse>
+    </nav>
+  );
+}
